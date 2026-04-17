@@ -67,7 +67,7 @@ p <- ggplot(long, aes(x = country, y = price, fill = country)) +
   labs(x = NULL, y = "Price (USD, 30-day supply)") +
   theme_minimal(base_size = size1) +
   theme(
-    axis.text.x = element_text(angle = 60, hjust = 1, size = size1),
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, size = size1),
     axis.text.y = element_text(size = size1),
     axis.title = element_text(size = size1),
     strip.text = element_text(face = "bold", size = size1),
@@ -79,5 +79,8 @@ p <- ggplot(long, aes(x = country, y = price, fill = country)) +
 
 ggsave("f:/GDrive/16_pharma_reform_proposal/latex/fig_intlprices.pdf",
        p, width = 14, height = 10.2)
+
+ggsave("f:/GDrive/16_pharma_reform_proposal/docs/fig_intlprices.png",
+       p, width = 14, height = 10.2, dpi = 150, bg = "white")
 
 cat("Done.\n")

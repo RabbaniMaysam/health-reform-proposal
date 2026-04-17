@@ -71,7 +71,7 @@ fill_values     <- c(VA = "gray15",    Medicare = "gray60", Private = "gray40", 
 pcolor_values   <- c(VA = "gray15",    Medicare = "black",  Private = "black",      Uninsured = "gray85")
 pfill_values    <- c(VA = "gray15",    Medicare = "gray90", Private = "gray85",     Uninsured = "gray85")
 
-size1 <- 14
+size1 <- 14 * 1.2
 
 p <- ggplot(long, aes(x = payer, y = price, fill = payer, pattern = payer,
                        pattern_fill = payer, pattern_colour = payer)) +
@@ -91,7 +91,7 @@ p <- ggplot(long, aes(x = payer, y = price, fill = payer, pattern = payer,
   labs(x = NULL, y = "Price (USD)") +
   theme_minimal(base_size = size1) +
   theme(
-    axis.text.x = element_text(angle = 45, hjust = 1, size = size1),
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5, size = size1),
     axis.text.y = element_text(size = size1),
     axis.title = element_text(size = size1),
     strip.text = element_text(face = "bold", size = size1),
