@@ -105,9 +105,9 @@ p <- ggplot(long, aes(x = payer, y = price, fill = payer, pattern = payer,
   )
 
 ggsave("f:/GDrive/16_pharma_reform_proposal/latex/fig_pricegaps.pdf",
-       p, width = 14, height = 14)
+       p, width = 14, height = 9.8)
 
 ggsave("f:/GDrive/16_pharma_reform_proposal/docs/fig_pricegaps.png",
-       p, width = 14, height = 14, dpi = 150, bg = "white")
+       p, width = 14, height = 9.8, dpi = 150, bg = "white")
 
 cat("Done.\n")

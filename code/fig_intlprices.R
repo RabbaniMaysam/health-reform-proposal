@@ -78,6 +78,6 @@ p <- ggplot(long, aes(x = country, y = price, fill = country)) +
   )
 
 ggsave("f:/GDrive/16_pharma_reform_proposal/latex/fig_intlprices.pdf",
-       p, width = 14, height = 12)
+       p, width = 14, height = 10.2)
 
 cat("Done.\n")
