@@ -23,28 +23,26 @@ d <- data.table(
     "Knee MRI",
     "Routine blood panel",
     "Sleep study, 1 night",
-    "Prenatal blood panel",
-    "Allergy skin panel",
     "ER trauma activation",
     "Oxaliplatin, per infusion"
   ),
   panel = c(
     rep("A. Pharmaceuticals", 3),
     rep("B. Hospital services", 8),
-    rep("C. Physician & outpatient services", 7)
+    rep("C. Physician & outpatient services", 5)
   ),
   VA       = c(344, 4993, 2.51,
                NA, NA, NA, NA, NA, NA, 25000, 880,
-               NA, NA, 790, NA, NA, NA, 830),
+               NA, NA, 790, NA, 830),
   Medicare = c(231, 4695, NA,
                20.44, 825, 554, 2123, NA, NA, NA, 1760,
-               200, 32, 920, 45, 300, 2000, 3090),
+               200, 32, 920, 2000, 3090),
   Private  = c(309, 7860, NA,
                60, NA, 2038, NA, 8944, 70882, NA, 5816,
-               762, 43, 5419, 6701, 24400, 3431, 3616),
+               762, 43, 5419, 3431, 3616),
   Uninsured = c(521, 13836, 8.50,
                 283, 6538, 7998, 4615, 41212, 117000, 164941, 19206,
-                2800, 500, 10322, 9520, 24400, 18836, 6711)
+                2800, 500, 10322, 18836, 6711)
 )
 
 # Keep only services with >= 3 non-NA payer values
@@ -85,7 +83,7 @@ p <- ggplot(long, aes(x = payer, y = price, fill = payer, pattern = payer,
     pattern_angle   = 45,
     pattern_key_scale_factor = 0.8
   ) +
-  facet_wrap(~ service, scales = "free_y", ncol = 4) +
+  facet_wrap(~ service, scales = "free_y", ncol = 5) +
   scale_pattern_manual(values = pattern_values, guide = "none") +
   scale_fill_manual(values = fill_values, guide = "none") +
   scale_pattern_fill_manual(values = pfill_values, guide = "none") +
@@ -105,9 +103,9 @@ p <- ggplot(long, aes(x = payer, y = price, fill = payer, pattern = payer,
   )
 
 ggsave("f:/GDrive/16_pharma_reform_proposal/latex/fig_pricegaps.pdf",
-       p, width = 14, height = 9.8)
+       p, width = 16, height = 7)
 
 ggsave("f:/GDrive/16_pharma_reform_proposal/docs/fig_pricegaps.png",
-       p, width = 14, height = 9.8, dpi = 150, bg = "white")
+       p, width = 16, height = 7, dpi = 150, bg = "white")
 
 cat("Done.\n")
