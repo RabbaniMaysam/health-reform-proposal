@@ -1,0 +1,202 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage[font={footnotesize}]{caption}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{lscape}
+\usepackage[super,comma,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+\onehalfspacing
+
+\title{One Drug, Many Prices:\\A Proposal to Reform US Healthcare Pricing}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\subsection*{Introduction}
+
+This paper proposes three structural reforms to pharmaceutical pricing and healthcare payment: consolidated government negotiation, Bloc-wide pricing as a condition of market access, and a central price lookup system. It is an intellectual exercise in policy design, not a political roadmap. It does not attempt to navigate legislative obstacles, overcome industry opposition, or chart a pathway through Congress. Rather, it asks: in a country where universal healthcare is politically opposed, is there a middle-ground structure that can meaningfully improve outcomes using mechanisms proven in other developed nations and other sectors of the US economy?
+
+The proposal is addressed to academics and policy makers. Its purpose is to float an idea, clarify its logic, and invite critique and refinement. It leaves to others the work of political strategy, legislative drafting, and advocacy. The motivation is straightforward: the US healthcare pricing system is broken, and the evidence is not subtle.
+
+\subsection*{The problem}
+
+Oxaliplatin is a generic chemotherapy drug for colorectal cancer, off patent for over twenty years. The drug itself costs Medicare about \$35 per dose. A Bloomberg investigation found the same dose billed at \$134 at an independent clinic and at \$13,560 at Rush University Medical Center, a nearly four-hundred-fold gap.\citep{griffin2025oxaliplatin} The hospital charge bundles the drug with facility and administration fees, but the gap remains large even after accounting for that: an independent study of full-infusion payments at a national sample of cancer centers found the uninsured were charged more than twice what Medicare and private insurers paid.\citep{dusetzina2016uninsured} This is not an outlier. Private insurers routinely pay upwards of five times the Medicare rate for generic cancer drugs.
+
+These price gaps are not confined to cancer drugs. Table~\ref{tab:pricegaps} shows documented examples across pharmaceuticals, hospital services, and physician care. In each case, the same product or service carries prices that differ by multiples depending on who is paying. The uninsured, who have no negotiating power at all, routinely face the highest prices: the hospital chargemaster for inpatient and outpatient services, the undiscounted list price for prescriptions, and whatever a physician's office chooses to post. These are not negotiated rates. They are sticker prices set unilaterally by the provider, and they are what patients without coverage actually get billed.
+
+\begin{table}[htbp]
+\caption{Documented price gaps for the same service or product across payers.}
+\label{tab:pricegaps}
+\resizebox{\textwidth}{!}{\begin{threeparttable}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Service & VA & Medicare & Private insurer & Uninsured \\
+\midrule
+\multicolumn{5}{c}{\textit{Panel A: Pharmaceuticals}} \\[2pt]
+Eliquis (apixaban), 30-day supply\citep{cms2024mfp,wouters2025jama} & \$344 & \$231 & \$309\tnote{1} & \$521 \\[3pt]
+Stelara (ustekinumab), 30-day equivalent\citep{cms2024mfp,wouters2025jama} & \$4,993\tnote{2} & \$4,695 & \$7,860\tnote{1} & \$13,836 \\[3pt]
+Humalog (insulin lispro), per 100 units\citep{hernandez2023insulin} & \$2.51\tnote{3} & --- & --- & $\sim$\$8.50\tnote{4} \\[2pt]
+\midrule
+\multicolumn{5}{c}{\textit{Panel B: Hospital services}} \\[2pt]
+Chest X-ray, 2 views\citep{brill2013bitterpill,turquoise2024prices} & & \$20.44 & $\sim$\$60\tnote{5} & \$283\tnote{6} \\[3pt]
+Three CT scans\citep{brill2013bitterpill} & & \$825 & --- & \$6,538\tnote{6} \\[3pt]
+Nuclear stress test\citep{brill2013bitterpill,turquoise2024prices} & & \$554 & $\sim$\$2,038\tnote{7} & \$7,998\tnote{6} \\[3pt]
+Flebogamma transfusion, per dose\citep{brill2013bitterpill} & & \$2,123 & --- & \$4,615\tnote{6} \\[3pt]
+Appendectomy\citep{appleby2020appendectomy} & & --- & \$8,944 & \$41,212\tnote{6} \\[3pt]
+Partial hip replacement\citep{allen2018hip} & & --- & \$70,882 & \$117,000+\tnote{6} \\[3pt]
+Heart attack, 4 stents\citep{kliff2018calver,bradley2015pci} & $\sim$\$25,000\tnote{27} & --- & --- & \$164,941\tnote{6} \\[3pt]
+Colonoscopy with biopsy\citep{andrews2024colonoscopy,henry2007colonoscopy} & $\sim$\$880\tnote{25} & \$1,760 & \$5,816\tnote{9} & \$19,206\tnote{6} \\[2pt]
+\midrule
+\multicolumn{5}{c}{\textit{Panel C: Physician and outpatient services}} \\[2pt]
+Knee MRI (freestanding ctr.\ vs.\ hospital outpt.)\citep{nihcr2014location} & & \$200 & \$606--919\tnote{10} & $\sim$\$2,800\tnote{11} \\[3pt]
+Routine blood panel\citep{hcci2022labs,cmsclfs2024} & & $\sim$\$32\tnote{12} & \$43\tnote{13} & $\sim$\$500\tnote{14} \\[3pt]
+Sleep study, 1 night\citep{andrews2021sleep,donovan2019sleep} & $\sim$\$790\tnote{26} & \$920 & \$5,419\tnote{15} & \$10,322\tnote{6} \\[3pt]
+Prenatal blood panel\citep{pattani2023bloodwork,cmsclfs2024} & & $\sim$\$45\tnote{16} & \$6,701\tnote{17} & \$9,520\tnote{6} \\[3pt]
+Allergy skin panel, 40 tests\citep{pbs2024allergy,cmspfs2024} & & $\sim$\$300\tnote{18} & \$24,400\tnote{19} & \$24,400\tnote{6} \\[3pt]
+ER trauma activation, no procedure\citep{gold2018trauma,wang2024trauma} & & $\sim$\$2,000\tnote{20} & \$3,431\tnote{21} & \$18,836\tnote{22} \\[3pt]
+Oxaliplatin, per infusion\citep{dusetzina2016uninsured,soni2014folfox} & $\sim$\$830\tnote{23} & \$3,090 & \$3,616 & \$6,711\tnote{24} \\[2pt]
+\bottomrule
+\end{tabular}
+\end{threeparttable}}
+\vspace{2pt}
+\begin{minipage}{\textwidth}
+\fontsize{8}{9}\selectfont
+\textit{Notes:} \textsuperscript{1}Estimated US net price to private payers after rebates and discounts, from SSR Health data.\citep{wouters2025jama} The uninsured face the list (WAC) price at retail pharmacy, since they have no access to the rebate channel. \textsuperscript{2}VA Federal Supply Schedule price for brand Stelara; biosimilars are available to the VA at a fraction of this rate. \textsuperscript{3}VA Federal Supply Schedule price (March 2026), accessible to all federal buyers; actual VA cost may be lower under Big~Four discount or National Contract terms. \textsuperscript{4}Approximate current US list (WAC) price per 100~units following Eli~Lilly's roughly 70\% list-price cut in late 2023 (from a pre-cut list of \$32.18 per 100~units in 2019). \textsuperscript{5}National commercial median for CPT 71046 (two-view chest X-ray), from hospital price-transparency data. \textsuperscript{6}Hospital chargemaster (list) price; this is what uninsured patients are billed. \textsuperscript{7}National commercial median for CPT 78452 (myocardial perfusion imaging), from hospital price-transparency data. \textsuperscript{9}Aetna-negotiated rate after reducing the \$19,206 chargemaster. Of this, Aetna paid \$1,979 and the patient paid \$4,047. \textsuperscript{10}\$606 at a freestanding center; \$919 at hospital outpatient. \textsuperscript{11}Representative chargemaster for CPT 73721; varies widely by hospital. \textsuperscript{12}Sum of Medicare Clinical Laboratory Fee Schedule national rates for the three component panels (lipid 80061, CBC 85025, CMP 80053). \textsuperscript{13}Independent reference lab (Quest) negotiated rate; the same bundle billed by a hospital outpatient department runs roughly twice as much. \textsuperscript{14}Representative chargemaster for the three-panel bundle; varies by institution. \textsuperscript{15}Humana's negotiated rate; patient owed \$5,157 of the \$10,322 charge. \textsuperscript{16}Medicare CLFS rate for the obstetric panel (CPT 80055); Medicare does not routinely cover prenatal care, so this is a benchmark for the same lab work. \textsuperscript{17}Insurer negotiated the \$9,520 chargemaster down to \$6,701; insurer paid \$4,310, patient paid \$2,390. Individual tests were marked at multiples of in-office rates (e.g., hepatitis B screen billed at \$418.55). \textsuperscript{18}Medicare Physician Fee Schedule, approximately \$7.50 per test (CPT 95004) times 40 tests. \textsuperscript{19}Billed at chargemaster with no negotiated discount; insurer (BCBS) paid ~\$19,000 and the patient paid \$5,400+. An independent allergy clinic charged $\sim$\$1,827 for a comparable panel. \textsuperscript{20}Approximate Medicare payment combining the trauma response code (G0390) and an emergency department E/M visit; precise rate depends on the year's OPPS Addendum~B and the specific E/M level. \textsuperscript{21}Median commercial-payer negotiated price for trauma team activation, from a hospital price-transparency study. \textsuperscript{22}Total bill for a 3-hour ER visit with no procedure performed; \$15,666 of the bill was a single trauma-activation fee. The patient's travel insurance was capped at \$5,000, so the chargemaster balance was billed to the family. \textsuperscript{23}Derived from the per-patient FOLFOX cost in a VA cost-effectiveness analysis (2008 VA internal costs, 12 biweekly infusions per 6-month regimen), inflated to 2024 dollars using the medical-care CPI. The figure combines the VA's in-house drug cost (FSS) with nursing, pharmacy, and overhead costs absorbed internally.\citep{soni2014folfox} \textsuperscript{24}Mean per-infusion payment in a national sample of cancer centers (2012 dollars; current figures are likely higher).\citep{dusetzina2016uninsured} \textsuperscript{25}Median VA direct health-care cost per diagnostic colonoscopy in a single-center microcosting study, inflated from 2002 to 2024 dollars using the medical-care CPI.\citep{henry2007colonoscopy} \textsuperscript{26}VA-reported cost per in-laboratory polysomnogram (2015 dollars, priced at Medicare rates), inflated to 2024 dollars using the medical-care CPI.\citep{donovan2019sleep} \textsuperscript{27}Median VA index-PCI admission cost from the CART Program registry (2008-2011 dollars), inflated to 2024 dollars using the medical-care CPI. Resource-intensive cases (such as four stents) likely run higher.\citep{bradley2015pci}\end{minipage}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig_pricegaps.pdf}
+\caption{Price gaps across payers for the same service or product.}
+\label{fig:pricegaps}
+\vspace{2pt}
+\begin{minipage}{\textwidth}
+\fontsize{8}{9}\selectfont
+\textit{Notes:} Bars show the total price each payer faces for the same service. Fill encodes the payer: solid dark is the VA, diagonal stripes is Medicare, crosshatch is a private insurer (total negotiated rate, including patient cost-sharing), and solid light gray is the uninsured (chargemaster or list price). Each panel uses its own vertical scale because the absolute amounts differ widely across services. Only rows with at least three of the four payers are shown. Missing bars indicate no defensible figure was available in the cited sources; see Table~\ref{tab:pricegaps} for row-level detail and sources.
+\end{minipage}
+\end{figure}
+
+These price gaps are not limited to differences across payers within the United States. They extend to differences between the United States and every other developed country. Figure~\ref{fig:intlprices} compares US drug prices with prices in six other developed countries for nine widely used medications, all among the first ten drugs selected for Medicare negotiation under the Inflation Reduction Act. These drugs were chosen by CMS based on Medicare spending, not by us. Every other country shown negotiates drug prices through centralized purchasing. The United States, until the Inflation Reduction Act, did not. The pattern is the same in every panel: the US list price (dark red) towers over what other nations pay (gray). Even after accounting for rebates and discounts that reduce the effective US price (orange), Americans still pay multiples of what patients in peer countries pay for identical drugs made by the same manufacturers. Where Medicare was authorized to negotiate (green), prices fell, but even the negotiated prices remain above what most other countries pay.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig_intlprices.pdf}
+\caption{Drug prices by country.}
+\label{fig:intlprices}
+\vspace{2pt}
+\begin{minipage}{\textwidth}
+\fontsize{8}{9}\selectfont
+\textit{Notes:} Dark red is the US list price (paid by the uninsured). Orange is the estimated net price after rebates and discounts, derived from SSR Health data and SEC filings.\citep{wouters2025jama} Green is the Medicare negotiated price under the Inflation Reduction Act (effective 2026). Gray bars are other developed countries. All nine drugs are among the first ten selected by CMS for Medicare negotiation based on program spending; the tenth (insulin aspart) is excluded because international prices are reported per unit rather than per 30-day supply, making direct comparison imprecise. Each panel uses its own vertical scale. Exact net prices are not publicly disclosed; the opacity of US drug pricing is itself part of the problem this proposal addresses.
+\end{minipage}
+\end{figure}
+
+These price gaps persist because no one can see them. Obtaining the price of a surgery, a doctor's visit, or a prescription before receiving it is so difficult, cumbersome, and time-consuming that most Americans never try. The transaction cost of comparison shopping is high enough to eliminate comparison shopping entirely. Insurers without Medicare's bargaining power are bullied into paying whatever providers demand, and the uninsured pay the most of all. The opacity is not a bug. It is the business model. No other developed nation tolerates this.
+
+\subsection*{Why these reforms work together}
+
+Two forces from industrial organization determine an insurer's ability to bring down healthcare prices. The first is the insurer's size: the larger the insurer, the more leverage it has, because losing the insurer's volume is more painful for the provider. The second is the availability of alternative insurers: when a provider has many other insurers to turn to, the threat of walking away is credible, and the insurer's leverage is blunted. The two forces work in opposition. A large insurer surrounded by many competing insurers has weaker leverage than a smaller insurer that is the only game in town. Maximum leverage requires both: a single large insurer with no meaningful alternatives for providers. The three reforms below are designed around this logic. Consolidated negotiation makes the government a single, large insurer. Bloc-wide pricing eliminates the alternative insurers that providers could otherwise turn to for higher rates. A central price lookup system ensures the prices that emerge from negotiation are honored, not undercut by the secret arrangements that historically diluted government leverage.
+
+\subsection*{Reform 1: Consolidated government negotiation}
+
+The federal government does not negotiate healthcare prices as a single insurer. It fragments its purchasing power across Medicare, Medicaid, and at least nine other programs, each with its own formulary, fee schedule, rules, and leverage. For prescription drugs alone, these programs account for 51\% of US spending, yet they compete against one another instead of bargaining as one.\citep{cms2024nhe} The government pays a similarly large share of hospital and physician bills, and those payments are just as fragmented. Consolidating these programs into a single negotiating Bloc, a unified entity that bargains on behalf of all federal healthcare programs, would use leverage the government already has but wastes. Every other developed nation does exactly this, and pays far less.\citep{gusmano2020price}
+
+When the government has the power to improve healthcare, it has a duty to use it. This is incontrovertible. Walmart negotiates with its suppliers. The Department of Defense negotiates with its contractors. The VA already negotiates drug prices and pays roughly half what Medicare Part D pays for the same medications.\citep{cbo2022commercial} For most of its history, Medicare was statutorily prohibited from negotiating drug prices at all, an arbitrary and indefensible restriction with no policy rationale, found nowhere else in the federal government or in the developed world. The Inflation Reduction Act of 2022 began to reverse this, authorizing Medicare to negotiate prices for a small number of high-expenditure drugs. The government already has what it takes to negotiate the price of all drugs at once. Confining that effort to ten drugs squanders the leverage, defies any policy rationale, and wastes taxpayer money.
+
+An average private insurer in 2022 paid 2.5 times the Medicare rate for hospital services.\citep{rand2024hospital} This reflects a leverage gap: providers extract higher prices from private insurers, who lack Medicare's size and leverage. Under the Bloc, that gap collapses. The price discrimination disappears and substantial cost savings follow. Usually, the highest healthcare prices are paid to hospitals in highly concentrated markets where a single hospital chain has taken over the majority of an area.\citep{cooper2019price} The creation of the Bloc is anticipated to generate the largest cost savings in these markets.
+
+For privately insured patients, the effect is a reduction in the inflated commercial rates they currently pay. Under the Bloc, the commercial premium that providers extract today collapses to the rate the Bloc negotiates. Premiums should fall, because the prices underlying those premiums fall.
+
+\subsection*{Reform 2: Bloc-wide pricing as a condition of market access}
+
+Any provider, whether a pharmacy, hospital, or physician, that contracts with the Bloc must charge all payers the same price for the same service. Commercial insurers, government programs, and uninsured individuals pay the same rate. The negotiated price is locked in: insurers cannot negotiate any further discounts on the side. Any provider that refuses loses its contract with the Bloc, and with it, access to the majority of the market.
+
+This proposal does not make all insurance plans identical. It standardizes the price, not the coverage. Once the price of a service is fixed, insurers compete on what fraction of that price they cover and what fraction the patient pays out of pocket. Generous plans cover most of the uniform price and leave the patient with a small copay. Cheaper plans may expose patients to a higher copay. Both plans pay the same price to the provider. What differs is how the cost is split between the insurer and the patient. The market for insurance plans survives intact. What disappears is the market for secret prices.
+
+For pharmacies, the rebate ecosystem ceases to exist. There are no rebates to capture, no spread pricing to exploit, and no opaque price differentials to arbitrage.
+
+For insurers, narrow networks lose their purpose. Today they exist because insurers negotiate lower rates from providers in exchange for steering patient volume. When every provider charges the same price, there is no price advantage to restricting network size.
+
+\subsection*{Reform 3: A central price lookup system}
+
+Reforms 1 and 2 produce one negotiated price per provider per service. Reform 3 makes that price visible. The Bloc operates a single, public price lookup system. When a provider contracts with the Bloc, the negotiated prices for every covered service are transferred from the contract directly into the system by Bloc officials. The provider does not file, post, or upload anything. The data is already in the Bloc's hands; it simply moves from the contract to the database.
+
+The lookup system is open to anyone, free, and built for comparison. A patient who needs an ENT visit can see the price at every provider in their area. A patient considering a hip replacement can compare every hospital within a chosen radius. A parent who needs an EpiPen for their child can see the price at every nearby pharmacy in real time. No registration, no identity verification, no friction.
+
+Enforcement follows directly. Every patient charged more than the listed price has the receipts to file a complaint, and the Bloc has the matching contract on file. The fine for charging above the listed price is large enough to make noncompliance more expensive than compliance. Existing transparency rules, such as the Hospital Price Transparency Rule and the Transparency in Coverage Rule, have failed precisely because they delegated posting to thousands of providers and imposed symbolic penalties for noncompliance. Hospitals that ignore those rules face fines as low as \$300 per day, a rounding error for a system billing millions.\citep{bai2015markup} A central lookup system avoids both failures: the data is held by one entity, and the penalty for charging above it has teeth.
+
+Today, an uninsured patient walking into a hospital is billed the chargemaster rate, which can be ten times the Medicare rate.\citep{bai2015markup} At the pharmacy they pay the undiscounted list price, which for insulin can be thirteen times what it cost at launch.\citep{rajkumar2020insulin} At the doctor's office they pay whatever the office chooses to charge. Under this proposal, they pay no more than insured patients, and they can see it before walking in. 
+
+{\scriptsize
+\setlength{\bibsep}{0pt}
+\bibliography{references}
+}
+
+\clearpage
+\begin{center}
+\vspace*{\fill}
+{\LARGE \textbf{Online Appendix}}
+\vspace*{\fill}
+\end{center}
+\clearpage
+
+\subsection*{Frequently asked questions}
+
+\textbf{Isn't this price-fixing?}
+
+No. Price-fixing is an agreement among competitors to set prices. This proposal does not prevent competing providers from setting different prices. Each hospital sets its own rate. Each physician sets their own rate. Each pharmacy sets their own rate. What changes is that once a price is negotiated with the government, it applies uniformly across all payers, not because the government has fixed a price, but because access to the government's purchasing power (over half the market) is conditional on transparency. Providers remain free to charge differently for different services, to compete on cost, and to negotiate rates commensurate with their costs and complexity. The absence of a secret price does not constitute price-fixing; it constitutes transparency.
+
+\textbf{Isn't this central planning?}
+
+No. Centrally planned systems dictate what services are provided, in what quantities, to whom, and how resources are allocated. This proposal does none of that. It does not create rationing, waiting lists, or regional allocation. It does not tell providers what to produce or patients whom to serve. It does not replace the market for insurance with a government plan; insurers remain distinct entities competing on coverage and cost-sharing. The market survives. What disappears is the subterranean market for secret prices, which is not a market at all but a space for information asymmetry and exploitation. The closest parallel is not socialism but rather government contracting in defense, infrastructure, or any sector where the buyer (government) uses its scale to negotiate transparent terms, insists on the same price for all buyers, and posts that price. This is not central planning. This is how large buyers operate.
+
+\textbf{How does pricing work when multiple generics exist for the same drug?}
+
+When generic equivalents are available, the negotiated price should be based on the generic, not the brand. So long as a generic is deemed therapeutically equivalent by the FDA, the uniform price that the Bloc negotiates is the price of the generic. Any patient who prefers the brand-name version pays the difference out of pocket. This gap between the generic and brand price functions like an out-of-network surcharge: the system covers the generic price, and the brand premium is elective.
+
+This should be coupled with a default-to-generic dispensing rule. Pharmacies dispense the generic unless the prescribing physician specifies the brand for a documented clinical reason. This is already the default in most states for retail prescriptions but is inconsistently applied in hospital and specialty pharmacy settings.
+
+Where multiple generics compete, the negotiated price should not be set by auction or by automatically selecting the lowest bidder. A race to the lowest price creates incentives to cut corners on manufacturing quality, which has already produced shortages and contamination problems in the generic drug supply. A standard negotiation, in which the Bloc agrees on a price that reflects fair manufacturing cost and adequate margin for reliable suppliers, is preferable.
+
+\textbf{Who decides which drugs the Bloc covers?}
+
+Formulary decisions are made by an independent board of salaried government officials with expertise in pharmacology, clinical medicine, and health economics. Their compensation is fixed and disconnected from the prices of the drugs they evaluate or the volume of prescriptions in any tier. Board members are prohibited from receiving any compensation from manufacturers, pharmacy chains, or insurers, both during their tenure and for a cooling-off period after leaving. The board's decisions, tiering rationale, and conflict-of-interest disclosures are public.
+
+\textbf{Won't providers simply set the Bloc price at the current commercial rate rather than lowering it toward Medicare rates?}
+
+The Bloc would control over half of all US healthcare spending. Providers do not set prices unilaterally; they negotiate with the Bloc, and the Bloc can refuse to contract at rates it considers excessive. The threat of losing access to Medicare, Medicaid, and all other federal programs simultaneously is existential for nearly every provider. Moreover, the claim that hospitals lose money on Medicare patients is belied by the fact that Medicare participation is voluntary. If Medicare rates were truly below cost, rational providers would stop accepting Medicare patients. That they do not reveals that Medicare rates are, at minimum, profitable at the margin.\citep{frakt2011costshift,white2013costshift} Pooling all federal volume into the Bloc only strengthens this leverage. Prices may rise modestly from current Medicare levels, but the Bloc has no reason to accept anything approaching current commercial rates, and providers have no credible threat to walk away from the majority of their patient volume.
+
+\textbf{Can high-earning specialists simply drop Medicare and opt out of the Bloc entirely?}
+
+Some will. The goal is not to retain every provider within the system. The goal is to make opting out so costly that it remains a marginal phenomenon. A concierge orthopedic surgeon or dermatologist serving exclusively wealthy patients can exit the system, but this is already the case today. The proposal does not lose anything on this front: those providers are already charging whatever they wish to a private clientele. What matters is that the overwhelming majority of providers, including nearly all primary care physicians, general surgeons, and community hospitals, cannot afford to forfeit access to the Bloc's patient pool. The small minority that opts out serves a luxury market and has negligible effect on the system's overall cost structure.
+
+\textbf{What happens to rural hospitals and safety-net providers that depend on higher commercial rates to stay open?}
+
+Under the Bloc, each provider sets its own rate. A rural hospital with high fixed costs and low patient volume will negotiate a higher rate. It has genuine leverage: the Bloc cannot leave its beneficiaries with zero access in a region served by a single hospital. The price settles at something sustainable through transparent negotiation. The hospital does not close; it charges what it needs to and justifies that price openly. To the extent that some facilities still require additional support, existing mechanisms such as Critical Access Hospital designations and Disproportionate Share Hospital payments already provide direct subsidies, and these can be maintained or adjusted without preserving a broken pricing system.
+
+\textbf{Can drug manufacturers credibly threaten to withdraw from the US market?}
+
+No. The United States is the most profitable pharmaceutical market in the world. Every other developed nation already negotiates drug prices through centralized purchasing and pays a fraction of US prices.\citep{gusmano2020price} A manufacturer that withdraws from the US market to avoid consolidated negotiation would be abandoning its highest-margin customers in favor of markets that pay far less. This is an industry lobbying talking point, not a credible economic threat. For the vast majority of drugs, withdrawal is irrational. For niche drugs with very small patient populations, targeted accommodations can be made without abandoning the overall pricing framework.
+
+\textbf{What is the net fiscal impact on the federal budget?}
+
+Total healthcare spending is very likely to fall. The Bloc is larger than any single program today, and larger insurers pay lower prices. Commercial rates, which currently exceed Medicare rates by multiples, collapse to the negotiated rate. The savings to employers, patients, and state Medicaid budgets are substantial.
+
+The federal budget effect is less certain. Some providers may accept low Medicare rates today partly because higher commercial rates are available to them. Once they can no longer charge commercial payers more, they may demand higher rates from the Bloc than they currently accept from Medicare alone. The negotiated rate could settle above today's Medicare rate, even as it falls well below today's commercial rate. Whether the federal government's share of spending rises or falls depends on the magnitude of each shift: how much Medicare rates increase versus how much total volume-weighted prices decrease. This is an empirical question that future research, drawing on provider cost data and negotiation simulations, could help pin down. The direction of total spending, however, is unambiguous: it falls.
+
+\end{document}

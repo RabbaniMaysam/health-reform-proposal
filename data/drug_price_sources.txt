@@ -1,0 +1,52 @@
+Drug Price Data Sources
+=======================
+Last updated: 2026-04-13
+
+Panel A drugs (Eliquis, Xarelto, Jardiance, Januvia, Entresto, Enbrel, Stelara,
+Imbruvica, Farxiga):
+  - US list prices, US net prices, and international prices (Australia, Canada,
+    France, Germany, Switzerland, UK):
+    Wouters OJ, Naci H, Kesselheim AS. Drug Prices Negotiated by Medicare
+    Compared With US Net Prices and Prices in Other Countries. JAMA. 2025.
+    PMC11612909. Table based on SSR Health net price methodology.
+  - Medicare negotiated prices (IRA, effective 2026):
+    CMS. Selected Drugs and Negotiated Prices. Medicare Drug Price Negotiation
+    Program. https://www.cms.gov/priorities/medicare-prescription-drug-affordability
+
+Ozempic, Wegovy (now replaced):
+  - Peterson-KFF Health System Tracker. Prices of Drugs for Weight Loss in the
+    US and Peer Nations. 2024.
+
+Humira (now replaced):
+  - World Population Review. Humira Cost by Country. 2023. Pre-biosimilar brand prices.
+
+EpiPen:
+  - World Population Review. EpiPen Price by Country. 2023.
+
+Insulin (all types):
+  - ASPE/HHS. Insulin Affordability and the Inflation Reduction Act. 2024.
+    Gross manufacturer price per standard unit, all insulin types, 2022 data.
+
+Imbruvica and Farxiga (new additions):
+  - Same JAMA/Wouters et al. source as Panel A above.
+  - US list and net prices from SSR Health methodology.
+  - International prices from the same comparative dataset.
+
+Estimated US net prices methodology:
+  - For IRA-negotiated drugs: SSR Health database, which derives net prices from
+    manufacturer SEC filings (10-K/10-Q). Reported in Wouters et al. JAMA 2025.
+  - For Ozempic: estimated ~$650/month from multiple industry sources (Drug
+    Channels, BCBS estimates). Moderate confidence.
+  - For EpiPen: ~$170/injector derived from Mylan 2016 channel economics
+    disclosure. Low confidence (outdated).
+  - For Insulin (all types): ~$47/SU estimated at ~50% of list, consistent with
+    industry average gross-to-net discounts. Moderate confidence.
+
+Revenue rankings (2024 global sales):
+  - Drug Discovery Trends. 2024's Blockbusters: Top 50 Pharmaceuticals by Sales.
+  - BioSpace. 10 Best-Selling Drugs of 2024.
+
+General gross-to-net context:
+  - Drug Channels Institute. 2024 Gross-to-Net Realities at 9 Top Drugmakers.
+  - Drug Channels Institute. U.S. Brand-Name Drug Prices Fell in 2025.
+  - Industry average: brand drugs sell for ~50% of list after rebates/discounts.

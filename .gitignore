@@ -1,0 +1,34 @@
+# LaTeX build artifacts
+latex/*.aux
+latex/*.bbl
+latex/*.blg
+latex/*.log
+latex/*.out
+latex/*.toc
+latex/*.synctex.gz
+latex/*.fdb_latexmk
+latex/*.fls
+
+# R temporary
+.Rhistory
+.RData
+.Rproj.user/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Project scratch
+output/
+data/temp/
+*.tmp
+
+# Local workflow
+.claude/
+prompts.txt
+prompts2.txt
