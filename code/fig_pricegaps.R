@@ -55,8 +55,21 @@ long <- melt(d, id.vars = c("service", "panel"),
              variable.name = "payer", value.name = "price")
 long <- long[!is.na(price)]
 
-# Factor ordering
-service_order <- d$service
+# Factor ordering: row 1 = 5 services; row 2 = 5 services.
+service_order <- c(
+  # Row 1
+  "Chest X-ray, 2 views",
+  "Nuclear stress test",
+  "Knee MRI",
+  "Routine blood panel",
+  "ER trauma activation",
+  # Row 2
+  "Eliquis, 30-day",
+  "Stelara, 30-day eq.",
+  "Sleep study, 1 night",
+  "Oxaliplatin, per infusion",
+  "Colonoscopy with biopsy"
+)
 long[, service := factor(service, levels = service_order)]
 payer_order <- c("VA", "Medicare", "Private", "Uninsured")
 long[, payer := factor(payer, levels = payer_order)]
@@ -71,7 +84,7 @@ fill_values     <- c(VA = "gray15",    Medicare = "gray60", Private = "gray40", 
 pcolor_values   <- c(VA = "gray15",    Medicare = "black",  Private = "black",      Uninsured = "gray85")
 pfill_values    <- c(VA = "gray15",    Medicare = "gray90", Private = "gray85",     Uninsured = "gray85")
 
-size1 <- 14 * 1.2
+size1 <- 14 * 1.2 * 0.9
 
 p <- ggplot(long, aes(x = payer, y = price, fill = payer, pattern = payer,
                        pattern_fill = payer, pattern_colour = payer)) +
