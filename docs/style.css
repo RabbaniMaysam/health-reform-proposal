@@ -116,6 +116,11 @@ details:last-of-type {
   border-bottom: 1px solid var(--rule);
 }
 
+details:target {
+  background: rgba(138, 43, 43, 0.04);
+  scroll-margin-top: 1rem;
+}
+
 summary {
   cursor: pointer;
   font-family: var(--sans);

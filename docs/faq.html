@@ -20,7 +20,7 @@
 
 <p class="lede">These are the questions most commonly raised about the three reforms. They are answered here rather than in the body of the note so that readers can scan and expand only what interests them.</p>
 
-<details>
+<details id="novelty">
   <summary><span class="service-name">Is the proposed trio of reforms novel?</span></summary>
   <div>
     <div class="notes">
@@ -50,7 +50,7 @@
   </div>
 </details>
 
-<details>
+<details id="provision">
   <summary><span class="service-name">How would these reforms change the healthcare-provision landscape?</span></summary>
   <div>
     <div class="notes">
@@ -59,7 +59,7 @@
   </div>
 </details>
 
-<details>
+<details id="insurance">
   <summary><span class="service-name">How would these reforms change the insurance market?</span></summary>
   <div>
     <div class="notes">
@@ -68,7 +68,7 @@
   </div>
 </details>
 
-<details>
+<details id="pharma">
   <summary><span class="service-name">How would these reforms change the pharmaceutical payment structure?</span></summary>
   <div>
     <div class="notes">
@@ -77,7 +77,7 @@
   </div>
 </details>
 
-<details>
+<details id="price-fixing">
   <summary><span class="service-name">Isn't this price-fixing?</span></summary>
   <div>
     <div class="notes">
@@ -86,7 +86,7 @@
   </div>
 </details>
 
-<details>
+<details id="central-planning">
   <summary><span class="service-name">Isn't this central planning?</span></summary>
   <div>
     <div class="notes">
@@ -95,7 +95,7 @@
   </div>
 </details>
 
-<details>
+<details id="bundles">
   <summary><span class="service-name">Hospital care is often paid in bundles, not per service. Can prices still be transparent?</span></summary>
   <div>
     <div class="notes">
@@ -106,7 +106,7 @@
   </div>
 </details>
 
-<details>
+<details id="negotiator-pay">
   <summary><span class="service-name">Why pay Bloc negotiators a salary with a small bonus rather than tying their pay to negotiated prices?</span></summary>
   <div>
     <div class="notes">
@@ -126,7 +126,7 @@
   </div>
 </details>
 
-<details>
+<details id="opt-out">
   <summary><span class="service-name">Can high-earning specialists simply drop Medicare and opt out of the Bloc entirely?</span></summary>
   <div>
     <div class="notes">
@@ -135,7 +135,7 @@
   </div>
 </details>
 
-<details>
+<details id="rural">
   <summary><span class="service-name">What happens to rural hospitals and safety-net providers that depend on higher commercial rates to stay open?</span></summary>
   <div>
     <div class="notes">
@@ -144,7 +144,7 @@
   </div>
 </details>
 
-<details>
+<details id="withdrawal">
   <summary><span class="service-name">Can drug manufacturers credibly threaten to withdraw from the US market?</span></summary>
   <div>
     <div class="notes">
@@ -153,7 +153,7 @@
   </div>
 </details>
 
-<details>
+<details id="innovation">
   <summary><span class="service-name">Would lower drug prices reduce pharmaceutical research and innovation?</span></summary>
   <div>
     <div class="notes">
@@ -172,7 +172,7 @@
   </div>
 </details>
 
-<details>
+<details id="fiscal">
   <summary><span class="service-name">What is the net fiscal impact on the federal budget?</span></summary>
   <div>
     <div class="notes">
@@ -187,5 +187,20 @@
 </footer>
 
 </div>
+<script>
+(function () {
+  function openTargeted() {
+    var hash = window.location.hash;
+    if (!hash) return;
+    var el = document.querySelector(hash);
+    if (el && el.tagName === 'DETAILS') {
+      el.open = true;
+      el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    }
+  }
+  window.addEventListener('DOMContentLoaded', openTargeted);
+  window.addEventListener('hashchange', openTargeted);
+})();
+</script>
 </body>
 </html>
