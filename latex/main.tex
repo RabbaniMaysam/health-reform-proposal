@@ -18,6 +18,8 @@
 \bibliographystyle{unsrtnat}
 \usepackage[colorlinks=true, urlcolor=blue, linkcolor=black, citecolor=black]{hyperref}
 
+\input{faq_numbers.tex}
+
 % Allow figures and tables to float more freely: let them take up most of a page
 % if needed, and do not leave large gaps chasing a perfect placement.
 \renewcommand{\topfraction}{0.9}
@@ -41,9 +43,9 @@
 
 \subsection*{Introduction}
 
-The US healthcare pricing system is broken: the same product is sold to different payers for wildly different amounts, patients cannot compare or even know the price of their care beforehand, pharmacy benefit managers coerce payment of undisclosed sums for themselves and hide the amounts as a tightly guarded secret, and the largest public insurer is largely prohibited from using its leverage to reduce prices.
+The US healthcare pricing system is broken: the same product is sold to different payers for wildly different amounts, patients cannot compare or even know the price of their care beforehand, pharmacy benefit managers coerce payment of undisclosed sums for themselves and hide the amounts as a tightly guarded secret, and the largest public insurer is effectively barred from using its leverage to reduce prices.
 
-I propose three reforms: consolidated government negotiation, Bloc-wide pricing as a condition of market access, and a central price lookup system. Each has been tried or proposed in isolation. The contribution of this note is to show how the three complement one another, with each closing a loophole the others leave open. See the \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html\#novelty}{FAQ} for the literature.
+I propose three reforms: consolidated government negotiation, Bloc-wide pricing as a condition of market access, and a central price lookup system. Each has been tried or proposed in isolation. The contribution of this note is to show how the three complement one another, with each closing a loophole the others leave open. See \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html}{FAQ \faqNovelty} for the literature.
 
 Figure~\ref{fig:pricegaps} shows the payment gap across ten commonly used drugs, hospital services, and outpatient procedures. For example, a colonoscopy costs \$880 at the VA, \$1,760 under Medicare, \$5,816 under a commercial insurer, and \$19,206 for uninsured patients. This is not an anomaly. In every case, the price of the same product or service swings several-fold across payers, and in every case the uninsured, the most vulnerable group, pay the most.
 
@@ -81,7 +83,7 @@ For most of its history, Medicare was statutorily prohibited from negotiating dr
 \end{minipage}
 \end{figure}
 
-Reform 1 outlaws rebates, chargebacks, spread pricing, and side payments of any kind. Negotiation is conducted by salaried Bloc negotiators with expertise in pharmacology, clinical medicine, and health economics, who also make formulary and tiering decisions. Bloc negotiators are prohibited from accepting any payment beyond their government compensation package, and for twelve months after leaving the Bloc are barred from employment in any sector of the regulated healthcare industry. Compensation follows the federal Senior Executive Service model: a fixed salary at the SES level and a performance bonus capped at 10\% of base, awarded on periodic peer-reviewed evaluations rather than per-contract outcomes. The \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html\#negotiator-pay}{FAQ} discusses the empirical literature supporting this incentive structure over either pure salary or performance-based pay.
+Reform 1 outlaws rebates, chargebacks, spread pricing, and side payments of any kind. Negotiation is conducted by salaried Bloc negotiators with expertise in pharmacology, clinical medicine, and health economics, who also make formulary and tiering decisions. Bloc negotiators are prohibited from accepting any payment beyond their government compensation package, and for twelve months after leaving the Bloc are barred from employment in any sector of the regulated healthcare industry. Compensation follows the federal Senior Executive Service model: a fixed salary at the SES level and a performance bonus capped at 10\% of base, awarded on periodic peer-reviewed evaluations rather than per-contract outcomes. \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html}{FAQ \faqNegotiatorPay} discusses the empirical literature supporting this incentive structure over either pure salary or performance-based pay.
 
 Smaller-scale precedents exist. The Federal Supply Schedule publishes VA-negotiated contract prices that the Department of Defense (including Tricare), the Indian Health Service, the Federal Bureau of Prisons, and the Public Health Service all purchase off,\citep{vafss2026} demonstrating that one negotiating body can serve many federal agencies at a single negotiated price. At the state level, pooled purchasing coalitions such as the Sovereign States Drug Consortium extract supplemental Medicaid rebates of 5 to 15\% beyond federal levels by combining state purchasing power.\citep{oig2014supplementalrebates, horvath2019purchasing}
 
@@ -103,7 +105,7 @@ Every Bloc contract pre-sets the price of every covered service, whether per ser
 
 The lookup system is open, free, and built for comparison. Patients can compare providers within a chosen radius before scheduling care, and physicians, who are more informed and more influential in directing demand, can route patients to lower-priced providers when prescribing or referring. A public API lets third parties integrate prices into comparison tools, electronic health records, and patient portals.
 
-Price transparency is a known driver of price reductions (see \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html\#novelty}{FAQ}), but only if the posted prices are the actual prices and if transparency is enforced. Existing federal transparency rules have failed on both counts: they require posting in formats too inconsistent to compare, and punish non-compliance with symbolic penalties (see \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html\#novelty}{FAQ}). Under the proposed reform, the Bloc posts actual contracted prices, and any patient charged more than the listed price can file a complaint. Deterrence requires large fines, for example a multiplier on the order of 100 times the overcharge (see \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html\#fines}{FAQ}), and contract termination for repeat offenders.
+Price transparency is a known driver of price reductions, but only if the posted prices are the actual prices and if transparency is enforced. Existing federal transparency rules have failed on both counts: they require posting in formats too inconsistent to compare, and punish non-compliance with symbolic penalties. Under the proposed reform, the Bloc posts actual contracted prices, and any patient charged more than the listed price can file a complaint. Deterrence requires large fines, for example a multiplier on the order of 100 times the overcharge, and contract termination for repeat offenders. \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html}{FAQ \faqNovelty} discusses the evidence on transparency and the failure of existing rules, and \href{https://rabbanimaysam.github.io/health-reform-proposal/faq.html}{FAQ \faqFines} the rationale for the fine multiplier.
 
 \subsection*{Final word}
 

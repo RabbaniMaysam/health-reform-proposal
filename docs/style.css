@@ -121,6 +121,20 @@ details:target {
   scroll-margin-top: 1rem;
 }
 
+body.faq-page {
+  counter-reset: faq;
+}
+
+body.faq-page .wrap > details {
+  counter-increment: faq;
+}
+
+body.faq-page .wrap > details > summary .service-name::before {
+  content: "FAQ " counter(faq) ". ";
+  color: var(--muted);
+  font-weight: 500;
+}
+
 summary {
   cursor: pointer;
   font-family: var(--sans);
