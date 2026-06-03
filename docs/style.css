@@ -324,10 +324,69 @@ footer a {
   }
 }
 
-/* Acronyms: hover to reveal the full term. Subtle dotted underline signals a definition is available. */
+/* Acronyms: hover to reveal the full term. Subtle dotted underline signals a definition is available.
+   A CSS tooltip shows the expansion immediately on hover/focus (the native title tooltip is slow and
+   unreliable). The title attribute is kept for accessibility and as a fallback. */
 abbr[title] {
+  position: relative;
   text-decoration: underline dotted;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   cursor: help;
+}
+
+abbr[title]::after {
+  content: attr(title);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(-6px);
+  white-space: normal;
+  width: max-content;
+  max-width: min(260px, 80vw);
+  text-align: center;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: normal;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, transform 0.12s ease;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* little arrow under the tooltip */
+abbr[title]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%) translateY(2px);
+  border: 5px solid transparent;
+  border-top-color: var(--fg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease;
+  z-index: 20;
+  pointer-events: none;
+}
+
+abbr[title]:hover::after,
+abbr[title]:focus::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+abbr[title]:hover::before,
+abbr[title]:focus::before {
+  opacity: 1;
+  visibility: visible;
 }
